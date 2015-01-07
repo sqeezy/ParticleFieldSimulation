@@ -28,12 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this._spacePanel = new System.Windows.Forms.Panel();
+            this.SuspendLayout();
+            // 
+            // _spacePanel
+            // 
+            this._spacePanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this._spacePanel.Location = new System.Drawing.Point(12, 12);
+            this._spacePanel.Name = "_spacePanel";
+            this._spacePanel.Size = new System.Drawing.Size(515, 493);
+            this._spacePanel.TabIndex = 0;
+            // 
+            // MainWindow
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(539, 517);
+            this.Controls.Add(this._spacePanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(555, 555);
+            this.MinimumSize = new System.Drawing.Size(555, 555);
+            this.Name = "MainWindow";
             this.Text = "MainWindow";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel _spacePanel;
     }
 }
 

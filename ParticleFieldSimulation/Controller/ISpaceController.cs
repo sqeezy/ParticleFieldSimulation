@@ -11,5 +11,6 @@ namespace ParticleFieldSimulation.Controller
     {
         void Start(int itterations);
         event Action<Dictionary<Vector,Vector>>  SpaceChanged;
+        double SizeOfSpace { get; }
     }
 }

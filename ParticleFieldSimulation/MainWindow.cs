@@ -21,7 +21,12 @@ namespace ParticleFieldSimulation
 
         public void Update(Dictionary<Vector, Vector> dictionary)
         {
-            throw new NotImplementedException();
+
+        }
+
+        public void SetSpaceSize(double sizeOfSpace)
+        {
+            
         }
     }
 }
