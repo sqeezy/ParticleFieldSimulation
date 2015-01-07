@@ -3,12 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleFieldSimulation", "ParticleFieldSimulation.csproj", "{FCE9C74D-F425-4592-8DED-81FD0DBF6374}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleFieldSimulation.Tests", "..\ParticleFieldSimulation.Facts\ParticleFieldSimulation.Tests.csproj", "{3C1F2031-2695-4FDD-9138-1C6E6283BE7D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7C7850A5-6498-46E9-B559-3855EC5A092A}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleFieldSimulation.Tests", "..\ParticleFieldSimulation.Tests\ParticleFieldSimulation.Tests.csproj", "{3C1F2031-2695-4FDD-9138-1C6E6283BE7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
