@@ -21,5 +21,25 @@ namespace ParticleFieldSimulation.Model
                        Z = a.Z + b.Z
                    };
         }
+
+        public static Vector operator *(Vector a, double b)
+        {
+            return b*a;
+        }
+
+        public static Vector operator *(double a, Vector b)
+        {
+            return new Vector
+                   {
+                       X = a*b.X,
+                       Y = a*b.Y,
+                       Z = a*b.Z
+                   };
+        }
+
+        public override string ToString()
+        {
+            return string.Format("(X={0:0.##} | Y={1:0.##} | Z={2:0.##})", X, Y, Z);
+        }
     }
 }

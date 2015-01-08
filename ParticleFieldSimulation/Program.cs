@@ -1,25 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ParticleFieldSimulation.Controller;
 using ParticleFieldSimulation.Model;
 
 namespace ParticleFieldSimulation
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        ///     The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
-            var func = new Function((d, d1, arg3) => d + d1 + arg3);
+            var func1 = new Function((x, y, z) => Math.Sin(x+z),"1");
+            var func2 = new Function((x, y, z) => Math.Cos(x-y),"2");
+            var func3 = new Function((x, y, z) => Math.Sin(y*z),"3");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainWindowController controller = new MainWindowController(new MainWindow(), new SpaceController(new Space(10,2), new VectorField(func,func,func )));
+            var controller = new MainWindowController(
+                new MainWindow(),
+                new SpaceController(new Space(10, 5), new VectorField(func1, func2, func3)));
             Application.Run(controller.Show());
         }
     }

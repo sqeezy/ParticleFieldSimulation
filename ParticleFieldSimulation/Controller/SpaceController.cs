@@ -17,7 +17,7 @@ namespace ParticleFieldSimulation.Controller
             _field = field;
             SizeOfSpace = _space.Size;
 
-            _positionToRotationMap = _space.Points.ToDictionary(GetRotation);
+            _positionToRotationMap = _space.Points.ToDictionary(vector => vector, GetRotation);
         }
 
         public void Start(int itterations)
@@ -25,11 +25,11 @@ namespace ParticleFieldSimulation.Controller
             for (int iter = 0; iter < itterations; iter++)
             {
                 List<Vector> newPositions =
-                    _positionToRotationMap.Keys.Select(
-                        positionVector => positionVector + _positionToRotationMap[positionVector]).ToList();
-                _positionToRotationMap = newPositions.ToDictionary(GetRotation);
+                    _positionToRotationMap.Keys.AsParallel().Select(
+                        positionVector => positionVector + 100*_positionToRotationMap[positionVector]).ToList();
+                _positionToRotationMap = newPositions.ToDictionary(vector => vector, GetRotation);
                 _space.Points = newPositions;
-                if (SpaceChanged != null)
+                if (SpaceChanged != null&&itterations%1000==0)
                 {
                     SpaceChanged(_positionToRotationMap);
                 }
@@ -41,7 +41,8 @@ namespace ParticleFieldSimulation.Controller
 
         private Vector GetRotation(Vector vector)
         {
-            return _field.GetRotation(vector);
+            var result = _field.GetRotation(vector);
+            return result;
         }
     }
 }

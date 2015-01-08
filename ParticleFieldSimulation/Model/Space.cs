@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Drawing;
 
 namespace ParticleFieldSimulation.Model
 {
@@ -11,12 +13,13 @@ namespace ParticleFieldSimulation.Model
         /// <param name="resolution">The number of particles per dimension per one unit.</param>
         public Space(double size, double resolution)
         {
+            Size = size;
             Points = new List<Vector>();
-            for (double x = 0; x < size; x += resolution)
+            for (double x = 1; x <= size; x += resolution)
             {
-                for (double y = 0; y < size; y += resolution)
+                for (double y = 1; y <= size; y += resolution)
                 {
-                    for (double z = 0; z < size; z += resolution)
+                    for (double z = 1; z <= size; z += resolution)
                     {
                         var vec = new Vector
                                   {
